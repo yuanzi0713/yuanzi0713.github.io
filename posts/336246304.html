@@ -8,7 +8,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            Hello World
+            服务器安装docker
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -36,19 +36,19 @@
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-subtitle">Hello World</h1>
+                <h1 class="header-subtitle">服务器安装docker</h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
-                            <i class="iconfont icon-time"></i> 发表时间：2022-11-14
+                            <i class="iconfont icon-time"></i> 发表时间：2023-02-20
                         </span>
                         
-                            <span id="/posts/16107.html" class="leancloud_visitors" data-flag-title="Hello World">
+                            <span id="/posts/336246304.html" class="leancloud_visitors" data-flag-title="服务器安装docker">
                                 <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                             </span>
                         
                         <span>
-                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/posts/16107.html"></span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/posts/336246304.html"></span>
                         </span>  
                     </p>
                     
@@ -65,19 +65,32 @@
         <div id="article">
             <div class="toc"></div>
             <div class="article-body">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+                <h1 id="添加更新yum源。"><a href="#添加更新yum源。" class="headerlink" title="添加更新yum源。"></a>添加更新yum源。</h1><p><code>yum update</code></p>
+<h1 id="清除旧版docker，如果存在的话"><a href="#清除旧版docker，如果存在的话" class="headerlink" title="清除旧版docker，如果存在的话"></a>清除旧版docker，如果存在的话</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum remove docker</span><br><span class="line">yum remove docker-client</span><br><span class="line">yum remove docker-client-latest</span><br><span class="line">yum remove docker-common</span><br><span class="line">yum remove docker-latest</span><br><span class="line">yum remove docker-latest-logrotate</span><br><span class="line">yum remove docker-logrotate</span><br><span class="line">yum remove docker-selinux</span><br><span class="line">yum remove docker-engine-selinux</span><br><span class="line">yum remove docker-engine</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h1 id="安装Device-Mapper工具"><a href="#安装Device-Mapper工具" class="headerlink" title="安装Device Mapper工具"></a>安装Device Mapper工具</h1><p><code>yum install -y yum-utils device-mapper-persistent-data lvm2 </code></p>
+<h1 id="配置docker的yum数据源"><a href="#配置docker的yum数据源" class="headerlink" title="配置docker的yum数据源"></a>配置docker的yum数据源</h1><p><code>yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</code></p>
+<h1 id="更新-yum缓存"><a href="#更新-yum缓存" class="headerlink" title="更新 yum缓存"></a>更新 yum缓存</h1><p><code>yum makecache</code></p>
+<h1 id="安装docker-ce（社区版）"><a href="#安装docker-ce（社区版）" class="headerlink" title="安装docker-ce（社区版）"></a>安装docker-ce（社区版）</h1><p><code>yum -y install docker-ce</code></p>
+<h1 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h1><p><code>systemctl start docker</code></p>
+<h1 id="检查安装结果"><a href="#检查安装结果" class="headerlink" title="检查安装结果"></a>检查安装结果</h1><p><code>docker info</code></p>
+<h1 id="设置开机启动-docker"><a href="#设置开机启动-docker" class="headerlink" title="设置开机启动 docker"></a>设置开机启动 docker</h1><p><code>systemctl    enable docker.service</code></p>
+<h1 id="重启docker"><a href="#重启docker" class="headerlink" title="重启docker"></a>重启docker</h1><p><code>systemctl restart docker</code></p>
+<h1 id="启动后可以使用如下命令进行校验"><a href="#启动后可以使用如下命令进行校验" class="headerlink" title="启动后可以使用如下命令进行校验"></a>启动后可以使用如下命令进行校验</h1><p><code>docker -v</code></p>
+<h1 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h1><h1 id="修改镜像仓库"><a href="#修改镜像仓库" class="headerlink" title="修改镜像仓库"></a>修改镜像仓库</h1><p><code>vim /etc/docker/daemon.json</code><br> #改为下面内容，然后重启docker</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> &#123;&quot;debug&quot;:true,&quot;experimental&quot;:true,</span><br><span class="line"> &quot;registry-mirrors&quot;:[&quot;https://pb5bklzr.mirror.aliyuncs.com&quot;,</span><br><span class="line">&quot;https://hub- mirror.c.163.com&quot;,&quot;https://docker.mirrors.ustc.edu.cn&quot;] &#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h1 id="Docker容器常见命令"><a href="#Docker容器常见命令" class="headerlink" title="Docker容器常见命令"></a>Docker容器常见命令</h1><p>1.搜索镜像：<code>docker search xxx</code><br>2.列出当前系统存在的镜像：<code>docker images</code><br>3.拉取镜像：<code>docker pull xxx</code></p>
+<ul>
+<li>xxx是具体某个镜像名称(格式 REPOSITORY:TAG)</li>
+<li>REPOSITORY：表示镜像的仓库源,TAG：镜像的标签</li>
+</ul>
+<p>4.运行容器命令<br>列举当前正在运行的容器：<code>docker ps</code><br>检查容器内部信息：<code>docker inspect 容器名称</code><br>删除镜像：<code>docker rmi IMAGE_NAME</code>(强制移除镜像不管是否有容器使用该镜像 增加<code>-f</code>参数)<br>停止某个容器：<code>docker stop 容器名称</code><br>启动某个容器：<code>docker start 容器名称</code><br>移除某个容器：<code> docker rm 容器名称 （容器必须是停止状态）</code><br>列举全部容器： <code>docker ps -a</code><br>查看容器启动日志：<code>docker logs -f 容器id</code>\</p>
+<h1 id="docker安装数据库"><a href="#docker安装数据库" class="headerlink" title="docker安装数据库"></a>docker安装数据库</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -p 3306:3306 --name 自定义名称_mysql -v \</span><br><span class="line">/usr/local/docker/mysql/conf:/etc/mysql -v \</span><br><span class="line">/usr/local/docker/mysql/logs:/var/log/mysql -v \</span><br><span class="line">/usr/local/docker/mysql/data:/var/lib/mysql -e \</span><br><span class="line">MYSQL_ROOT_PASSWORD=自定义密码 -d mysql:5.7</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>启动数据库：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=设置的密码 -d mysql:5.7</span><br></pre></td></tr></table></figure>
 
                 
                 <p class="end">__END__</p>
@@ -90,9 +103,9 @@
     <div class="suffix-box-right">
         <span class="suffix-box-title">文章作者：</span>园子
         <br>
-        <span class="suffix-box-title">文章出处：</span><a href="/posts/16107.html" target="_blank">Hello World</a>
+        <span class="suffix-box-title">文章出处：</span><a href="/posts/336246304.html" target="_blank">服务器安装docker</a>
         <br>
-        <span class="suffix-box-title">作者签名：</span>简单地活着, 肆意又精彩.
+        <span class="suffix-box-title">作者签名：</span>hahahahha.......嗝~, hahahahhahahhah,嗝~,哈哈哈哈哈哈哈哈哈~
         <br>
         <span class="suffix-box-title">关于主题：</span><a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
         <br>
@@ -576,9 +589,9 @@
 
         Valine : {
             switch         : true,
-            el             : ".comments-content",
-            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
-            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            el             : ".yuanzi_blog",
+            appId          : "cMnp5lppJfF0LkfrFUEIrBi2-gzGzoHsz",
+            appKey         : "ZmhqPrzJ1TGx4T2bDG3s8k47",
             serverURLs     : "",
             placeholder    : "你是我一生只会遇见一次的惊喜...",
             avatar         : "mm",
@@ -705,7 +718,7 @@
         },
 
         Suffix : {
-            about : "简单地活着, 肆意又精彩."
+            about : "hahahahha.......嗝~, hahahahhahahhah,嗝~,哈哈哈哈哈哈哈哈哈~"
         },
             
         Theme : {
