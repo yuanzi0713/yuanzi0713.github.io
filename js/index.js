@@ -3,7 +3,7 @@
         GitHubUserName: 'first19326',
         GitHubRepositories: 'Hexo-LiveForCode',
         User: 'LiveForCode',
-        UserAvatar: '/image/sidebar/avatar.jpg',
+        UserAvatar: '/image/sidebar/head.png',
         WebsiteStartDate: '2020-01-01',
         WebsiteTitleBlur: '(◍´꒳`◍) Hi, Live For Code',
         WebsiteTitleBlurTimeOut: 500,
