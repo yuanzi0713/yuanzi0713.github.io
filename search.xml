@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Navicat报1251错误</title>
+      <link href="/posts/544531829.html"/>
+      <url>/posts/544531829.html</url>
+      
+        <content type="html"><![CDATA[<p>之前遇到这个问题，搜了好多博客都是本地的，不太适合我，后面总结了一下</p><h2 id="！！！！提示："><a href="#！！！！提示：" class="headerlink" title="！！！！提示："></a>！！！！提示：</h2><p>在此之前你需要去使用docker ps 来查看mysql容器id！<br>在此之前你需要去使用docker ps 来查看mysql容器id！<br>在此之前你需要去使用docker ps 来查看mysql容器id！\</p><p>按照以下的步骤：</p><ol><li>docker 进入MySQL容器：docker exec -it  mysql容器id  /bin/bash</li><li>进入mysql之后输入：mysql -u root -p  再输入数据库设置的密码</li><li>对远程授权：GRANT ALL ON <em>.</em> TO ‘root‘@’%’;</li><li>更改密码的加密规则：ALTER USER ‘root‘@’%’ IDENTIFIED BY ‘password’ PASSWORD EXPIRE NEVER;</li><li>更改root的密码：ALTER USER ‘root‘@’%’ IDENTIFIED WITH mysql_native_password BY ‘root’;</li><li>刷新数据库:flush privileges;</li><li>再次用Navicat远程连接数据库</li></ol>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>服务器安装docker</title>
       <link href="/posts/336246304.html"/>
       <url>/posts/336246304.html</url>
